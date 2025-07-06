@@ -17,15 +17,19 @@ export default function Navbar() {
         <div className="nav-links">
           <Link to="/" className="nav-link">
             <FontAwesomeIcon icon={faHouse} size="lg" />
+            <span className="tooltip">Home</span>
           </Link>
-          <Link to="/marketplace">
+          <Link to="/marketplace" className="nav-link">
           <FontAwesomeIcon icon={faStore} size="lg" />
+          <span className="tooltip">Marketplace</span>
           </Link>
-          <Link to="/review">
+          <Link to="/review" className="nav-link">
             <FontAwesomeIcon icon={faComment} size="lg" />
+            <span className="tooltip">Leave a Review</span>
           </Link>
-          <Link to="/cart">
+          <Link to="/cart" className="nav-link">
             <FontAwesomeIcon icon={faShoppingCart} />
+            <span className="tooltip">Cart</span>
             <p style={{ display: 'inline', marginLeft: '6px', color: 'white' }}>({cartItems.length})</p>
           </Link>
         </div>

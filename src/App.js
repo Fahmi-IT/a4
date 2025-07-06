@@ -11,21 +11,21 @@ import "./App.css";
 const slides = [
   {
     id: 1,
-    title: "Introducing the Future",
-    subtitle: "Tech reimagined",
-    image: "/assets/slide1.jpg",
+    title: "One Stop Shop",
+    subtitle: "for all your gaming needs",
+    image: "/assets/slide1_new.png",
   },
   {
     id: 2,
-    title: "Modular. Minimal. Mighty.",
-    subtitle: "Customize your power",
-    image: "/assets/slide2.jpg",
+    title: "Old and New",
+    subtitle: "We have it all",
+    image: "/assets/slide2_new.png",
   },
   {
     id: 3,
-    title: "Performance that adapts",
-    subtitle: "Smarter tools, brighter future",
-    image: "/assets/slide3.jpg",
+    title: "Niche?",
+    subtitle: "No problem",
+    image: "/assets/slide3_new.png",
   },
 ];
 
@@ -59,13 +59,12 @@ const SlideShow = () => {
   );
 };
 
-const Card = ({ title, description, image }) => (
-  <div className="card">
-    <img src={image} alt={title} />
-    <h2>{title}</h2>
-    <p>{description}</p>
-    <button className="cta">Buy Now</button>
-  </div>
+const Card = ({ className, image, brand, bgColor, height }) => (
+  <Link to={`/marketplace?brand=${encodeURIComponent(brand)}`} className="card-link">
+    <div className="card" style={{ backgroundColor: bgColor, height: height }}>
+      <img src={image} alt={`${brand} logo`} className={className} />
+    </div>
+  </Link>
 );
 
 <Navbar />
@@ -73,23 +72,42 @@ const Card = ({ title, description, image }) => (
 const Home = () => (
   <>
     <SlideShow />
+    <div className="shop-now-container">
+      <Link to="/marketplace" className="shop-now-button">
+        Shop Now
+      </Link>
+    </div>
+    <div className="section-header">
+      <h2>Popular Brands</h2>
+      <div className="underline-accent"></div>
     <section className="product-grid">
-      <Card
-        title="Ultra Laptop"
-        description="Powerful. Customizable. Portable."
-        image="/assets/product1.jpg"
-      />
-      <Card
-        title="Modular Dock"
-        description="Expand your workspace your way."
-        image="/assets/product2.jpg"
-      />
-      <Card
-        title="Performance Kit"
-        description="Supercharge your experience."
-        image="/assets/product3.jpg"
-      />
+      <Card className="playstation-logo" image="/assets/ps_clean.png" brand="Playstation" bgColor="rgb(14, 14, 116)" />
+      <Card className="nintendo-logo" image="/assets/nintendo_logo_clean.png" brand="Nintendo" bgColor="red" height="200px" />
+      <Card className="xbox-logo" image="/assets/xbox_clean.png" brand="Xbox" bgColor="green" />
     </section>
+    </div>
+    <div className="split-section">
+  {/* Left side: Review button */}
+  <div className="split-left">
+    <h3 className="leave-review">Enjoyed shopping?</h3>
+    <Link to="/review" className="review-button">
+      Leave a Review
+    </Link>
+    <h3 className="leave-review">Help us Improve!</h3>
+  </div>
+
+  <div className="vertical-divider"></div>
+
+  {/* Right side: Newsletter form */}
+  <div className="split-right">
+    <h3 className="newsLetter">Join Our Newsletter</h3>
+    <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
   </>
 );
 
