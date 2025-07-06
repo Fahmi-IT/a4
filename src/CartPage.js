@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { CartContext } from "./contexts/CartContext";
-import Navbar from "./components/Navbar";
+import { Link } from "react-router-dom";
 import "./App.css";
 
 export default function CartPage() {
   const { cartItems, setCartItems } = useContext(CartContext);
-  const navigate = useNavigate();
+
+  // Group and count
+  const groupedCart = cartItems.reduce((acc, item) => {
+    const key = item.id;
+    if (!acc[key]) acc[key] = { ...item, quantity: 0 };
+    acc[key].quantity++;
+    return acc;
+  }, {});
+
+  const groupedItems = Object.values(groupedCart);
+  const subtotal = groupedItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   const increaseQty = (item) => {
     setCartItems([...cartItems, item]);
@@ -21,51 +33,52 @@ export default function CartPage() {
     }
   };
 
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
-
-  const groupedCart = cartItems.reduce((acc, item) => {
-    const key = item.id;
-    if (!acc[key]) acc[key] = { ...item, quantity: 0 };
-    acc[key].quantity++;
-    return acc;
-  }, {});
-
-  const groupedItems = Object.values(groupedCart);
-
-  const handleProceedToPayment = () => {
-    navigate("/payment");
-  };
-
   return (
     <div className="cart-page">
-      <h1>Your Cart</h1>
+      <h1 className="cart-title">My Cart</h1>
 
-      {groupedItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
-          <ul className="cart-list">
+      <div className="cart-container">
+        {groupedItems.length === 0 ? (
+          <div className="cart-empty">Your cart is empty.
+          <br />
+          <Link to="/marketplace" className="browse-button">
+            Browse Products
+          </Link>
+          </div>
+        ) : (
+          <div className="cart-items">
             {groupedItems.map((item) => (
-              <li key={item.id} className="cart-item">
-                <div>
-                  <strong>{item.name}</strong> — ${item.price.toFixed(2)} x {item.quantity}
-                </div>
-                <div className="qty-controls">
-                  <button onClick={() => decreaseQty(item)}>-</button>
-                  <button onClick={() => increaseQty(item)}>+</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <h3>Total: ${totalPrice.toFixed(2)}</h3>
-          <button
-            className="proceed-payment-btn"
-            onClick={handleProceedToPayment}
-          >
-            Proceed to Payment
-          </button>
-        </>
-      )}
+        <div key={item.id} className="cart-row fade-in">
+          <div className="cart-col cart-product">{item.name}</div>
+
+          <div className="cart-col cart-quantity-controls">
+            <button onClick={() => decreaseQty(item)}>-</button>
+            <span>{item.quantity}</span>
+            <button onClick={() => increaseQty(item)}>+</button>
+          </div>
+
+          <div className="cart-col cart-price">
+            ${(item.price * item.quantity).toFixed(2)}
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {groupedItems.length > 0 && (
+    <div className="cart-subtotal">
+      <strong>Subtotal:</strong> ${subtotal.toFixed(2)}
+    </div>
+  )}
+
+  {groupedItems.length > 0 && (
+    <div className="cart-actions">
+      <Link to="/payment" className="proceed-button">
+        Proceed to Payment
+      </Link>
+    </div>
+  )}
+</div>
     </div>
   );
 }

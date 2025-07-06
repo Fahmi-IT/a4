@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Marketplace from "./marketplace";
 import CartPage from "./CartPage";
 import Navbar from "./components/Navbar";
@@ -12,19 +13,19 @@ const slides = [
   {
     id: 1,
     title: "One Stop Shop",
-    subtitle: "for all your gaming needs",
+    subtitle: "for all your gaming needs.",
     image: "/assets/slide1_new.png",
   },
   {
     id: 2,
     title: "Old and New",
-    subtitle: "We have it all",
+    subtitle: "We have it all.",
     image: "/assets/slide2_new.png",
   },
   {
     id: 3,
     title: "Niche?",
-    subtitle: "No problem",
+    subtitle: "No problem.",
     image: "/assets/slide3_new.png",
   },
 ];
@@ -59,17 +60,43 @@ const SlideShow = () => {
   );
 };
 
-const Card = ({ className, image, brand, bgColor, height }) => (
+const Card = ({ className, image, brand, bgColor, height }) => {
+  const navigate = useNavigate();
+
+  const handleBrandClick = (brand) => {
+    navigate("/marketplace", { state: { preselectedBrand: brand } });
+  };
+
+  return (
   <Link to={`/marketplace?brand=${encodeURIComponent(brand)}`} className="card-link">
-    <div className="card" style={{ backgroundColor: bgColor, height: height }}>
+    <div className="card" onClick={() => handleBrandClick({brand})} style={{ backgroundColor: bgColor, height: height }}>
       <img src={image} alt={`${brand} logo`} className={className} />
     </div>
   </Link>
 );
+}
 
 <Navbar />
 
-const Home = () => (
+const Home = () => {
+  const [newsletterForm, setNewsletterForm] = useState({ name: "", email: "" });
+
+  const handleNewsletterChange = (e) => {
+    setNewsletterForm({ ...newsletterForm, [e.target.name]: e.target.value });
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    // You can add validation here if needed
+
+    // Show alert
+    alert("Thank you for subscribing to our newsletter.");
+
+    // Clear form
+    setNewsletterForm({ name: "", email: "" });
+  };
+
+  return (
   <>
     <SlideShow />
     <div className="shop-now-container">
@@ -80,7 +107,7 @@ const Home = () => (
     <div className="section-header">
       <h2>Popular Brands</h2>
       <div className="underline-accent"></div>
-    <section className="product-grid">
+    <section className="product-grid-home">
       <Card className="playstation-logo" image="/assets/ps_clean.png" brand="Playstation" bgColor="rgb(14, 14, 116)" />
       <Card className="nintendo-logo" image="/assets/nintendo_logo_clean.png" brand="Nintendo" bgColor="red" height="200px" />
       <Card className="xbox-logo" image="/assets/xbox_clean.png" brand="Xbox" bgColor="green" />
@@ -101,15 +128,32 @@ const Home = () => (
   {/* Right side: Newsletter form */}
   <div className="split-right">
     <h3 className="newsLetter">Join Our Newsletter</h3>
-    <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <button type="submit">Sign Up</button>
-    </form>
+    <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
+    <input
+      type="text"
+      name="name"
+      value={newsletterForm.name}
+      onChange={handleNewsletterChange}
+      placeholder="Your name"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      value={newsletterForm.email}
+      onChange={handleNewsletterChange}
+      placeholder="Your Email"
+      required
+    />
+  <button type="submit" className="signup-button">
+    Sign Up
+  </button>
+</form>
   </div>
 </div>
   </>
 );
+}
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(false);
