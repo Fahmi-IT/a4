@@ -4,6 +4,7 @@ import { faComment, faStore, faHouse, faShoppingCart } from "@fortawesome/free-s
 import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import "../App.css";
+import neoLogo from "../assets/neo_icon.png";
 
 export default function Navbar() {
   const { cartItems } = useContext(CartContext);
@@ -12,7 +13,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src="/assets/neo_icon.png" alt="NeoStore Logo" />
+          <img src={neoLogo} alt="NeoStore Logo" />
         </Link>
         <div className="nav-links">
           <Link to="/" className="nav-link">

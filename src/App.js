@@ -8,25 +8,31 @@ import Navbar from "./components/Navbar";
 import PaymentPage from "./PaymentPage";
 import ReviewPage from "./ReviewPage";
 import "./App.css";
+import slide1 from "./assets/slide1_new.png";
+import slide2 from "./assets/slide2_new.png";
+import slide3 from "./assets/slide3_new.png";
+import xbox_logo from "./assets/xbox_clean.png";
+import ps_logo from "./assets/ps_clean.png";
+import nintendo_logo from "./assets/nintendo_logo_clean.png";
 
 const slides = [
   {
     id: 1,
     title: "One Stop Shop",
     subtitle: "for all your gaming needs.",
-    image: "/assets/slide1_new.png",
+    image: slide1,
   },
   {
     id: 2,
     title: "Old and New",
     subtitle: "We have it all.",
-    image: "/assets/slide2_new.png",
+    image: slide2,
   },
   {
     id: 3,
     title: "Niche?",
     subtitle: "No problem.",
-    image: "/assets/slide3_new.png",
+    image: slide3,
   },
 ];
 
@@ -108,9 +114,9 @@ const Home = () => {
       <h2>Popular Brands</h2>
       <div className="underline-accent"></div>
     <section className="product-grid-home">
-      <Card className="playstation-logo" image="/assets/ps_clean.png" brand="Playstation" bgColor="rgb(14, 14, 116)" />
-      <Card className="nintendo-logo" image="/assets/nintendo_logo_clean.png" brand="Nintendo" bgColor="red" height="200px" />
-      <Card className="xbox-logo" image="/assets/xbox_clean.png" brand="Xbox" bgColor="green" />
+      <Card className="playstation-logo" image={ps_logo} brand="Playstation" bgColor="rgb(14, 14, 116)" />
+      <Card className="nintendo-logo" image={nintendo_logo} brand="Nintendo" bgColor="red" height="200px" />
+      <Card className="xbox-logo" image={xbox_logo} brand="Xbox" bgColor="green" />
     </section>
     </div>
     <div className="split-section">

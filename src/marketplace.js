@@ -1,26 +1,41 @@
 import React, { useState, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import { CartContext } from "./contexts/CartContext";
-import nintendo_switch_2 from "./assets/nintendo_switch_2.png"
+import nintendo_switch_2 from "./assets/nintendo_switch_2.png";
+import gamecube from "./assets/nintendo_gamecube.png";
+import pro_controller from "./assets/nintendo_pro.png";
+import mkw from "./assets/mkw.png";
+import nintendo_online from "./assets/nintendo_online.png";
+import ps5 from "./assets/ps5.png";
+import ps2 from "./assets/ps2.png";
+import ps4_controller from "./assets/ps4_blue.png";
+import ps_online from "./assets/ps_plus.png";
+import sly_cooper from "./assets/sl2.png";
+import xbox_one from "./assets/xbox_one.png";
+import kinect from "./assets/xbox_kinect.png";
+import xbox360 from "./assets/xbox360.png";
+import xbox_gold from "./assets/xbox_gold.png";
+import halo_ce from "./assets/halo_ce.png";
+import sega from "./assets/sega_genesis.png";
 import "./App.css";
 
 const dummyProducts = [
   { id: 1, description: "A Nintendo Switch 2 console.", name: "Nintendo Switch 2", price: 700, available: false, brand: "Nintendo", type: "Console", img: nintendo_switch_2}, 
-  { id: 2, description: "A refurbished Nintendo Gamecube console.", name: "Nintendo Gamecube", price: 100, available: true, brand: "Nintendo", type: "Console", img: "/assets/nintendo_gamecube.png"}, 
-  { id: 3, description: "A Nintendo Switch 2 Pro Controller. Includes 2 additional buttons.", name: "Nintendo Switch 2 Pro Controller", price: 100, available: true, brand: "Nintendo", type: "Accessory", img: "/assets/nintendo_pro.png"}, 
-  { id: 4, description: "The latest entry in the Mario Kart series. New tracks, new racers, and new modes!", name: "Mario Kart World", price: 100, available: true, brand: "Nintendo", type: "Game", img: "/assets/mkw.png"}, 
-  { id: 5, description: "A Nintendo Switch Online subscription, allowing the user to get access to a library of retro games and online play.", name: "Nintendo Switch Online Subscription (3 Months)", price: 80, available: true, brand: "Nintendo", type: "Digital", img: "/assets/nintendo_online.png"}, 
-  { id: 6, description: "The latest console in the Playstation family. Can run most games at high resolution and good framerate. Has access to PS exclusives.", name: "Playstation 5", price: 400, available: true, brand: "Playstation", type: "Console", img: "/assets/ps5.png"}, 
-  { id: 7, description: "The console that took the 21st century by storm when it first released. The PS2 is an iconic entry in the series.", name: "Playstation 2", price: 100, available: true, brand: "Playstation", type: "Console", img: "/assets/ps2.png"}, 
-  { id: 8, description: "A blue controller for the Playstation 4.", name: "PS4 Controller (Blue)", price: 60, available: true, brand: "Playstation", type: "Accessory", img: "/assets/ps4_blue.png"}, 
-  { id: 9, description: "A subscription to Playstation Plus, which provides free access to games and online play.", name: "Playstation Plus Subscription (1 Month)", price: 12, available: true, brand: "Playstation", type: "Digital", img: "/assets/ps_plus.png"}, 
-  { id: 10, description: "The sequel to the critically acclaimed Sly Cooper.", name: "Sly Cooper 2: Band of Thieves", price: 30, available: true, brand: "Playstation", type: "Game", img: "/assets/sl2.png"}, 
-  { id: 11, description: "A modern entry in the Xbox family, the Xbox One modernized gaming and was a first step in modern gaming.", name: "Xbox One", price: 400, available: true, brand: "Xbox", type: "Console", img: "/assets/xbox_one.png"}, 
-  { id: 12, description: "An accessory that provides camera support to the Xbox 360.", name: "Xbox Kinect Camera", price: 20, available: true, brand: "Xbox", type: "Accessory", img: "/assets/xbox_kinect.png"}, 
-  { id: 13, description: "An iconic console, a defining piece of hardware in its generation, the Xbox 360 is a staple of an older time.", name: "Xbox 360", price: 100, available: true, brand: "Xbox", type: "Console", img: "/assets/xbox360.png"}, 
-  { id: 14, description: "A subscription to Xbox Gold, which provides free access to games and online play.", name: "Xbox Gold Subscription (12 Months)", price: 80, available: true, brand: "Xbox", type: "Digital", img: "/assets/xbox_gold.png"}, 
-  { id: 15, description: "from an iconic franchise, Halo CE is a game that cannot be overlooked. Combines FPS with fantasy.", name: "Halo: Combat Evolved", price: 30, available: true, brand: "Xbox", type: "Game", img: "/assets/halo_ce.png"},
-  { id: 16, description: "An older console from a forgotten era, the Sega Genesis was one of Sega's finest works.", name: "Sega Genesis", price: 80, available: true, brand: "Sega", type: "Console", img: "/assets/sega_genesis.png"} 
+  { id: 2, description: "A refurbished Nintendo Gamecube console.", name: "Nintendo Gamecube", price: 100, available: true, brand: "Nintendo", type: "Console", img: gamecube}, 
+  { id: 3, description: "A Nintendo Switch 2 Pro Controller. Includes 2 additional buttons.", name: "Nintendo Switch 2 Pro Controller", price: 100, available: true, brand: "Nintendo", type: "Accessory", img: pro_controller}, 
+  { id: 4, description: "The latest entry in the Mario Kart series. New tracks, new racers, and new modes!", name: "Mario Kart World", price: 100, available: true, brand: "Nintendo", type: "Game", img: mkw}, 
+  { id: 5, description: "A Nintendo Switch Online subscription, allowing the user to get access to a library of retro games and online play.", name: "Nintendo Switch Online Subscription (3 Months)", price: 80, available: true, brand: "Nintendo", type: "Digital", img: nintendo_online}, 
+  { id: 6, description: "The latest console in the Playstation family. Can run most games at high resolution and good framerate. Has access to PS exclusives.", name: "Playstation 5", price: 400, available: true, brand: "Playstation", type: "Console", img: ps5}, 
+  { id: 7, description: "The console that took the 21st century by storm when it first released. The PS2 is an iconic entry in the series.", name: "Playstation 2", price: 100, available: true, brand: "Playstation", type: "Console", img: ps2}, 
+  { id: 8, description: "A blue controller for the Playstation 4.", name: "PS4 Controller (Blue)", price: 60, available: true, brand: "Playstation", type: "Accessory", img: ps4_controller}, 
+  { id: 9, description: "A subscription to Playstation Plus, which provides free access to games and online play.", name: "Playstation Plus Subscription (1 Month)", price: 12, available: true, brand: "Playstation", type: "Digital", img: ps_online}, 
+  { id: 10, description: "The sequel to the critically acclaimed Sly Cooper.", name: "Sly Cooper 2: Band of Thieves", price: 30, available: true, brand: "Playstation", type: "Game", img: sly_cooper}, 
+  { id: 11, description: "A modern entry in the Xbox family, the Xbox One modernized gaming and was a first step in modern gaming.", name: "Xbox One", price: 400, available: true, brand: "Xbox", type: "Console", img: xbox_one}, 
+  { id: 12, description: "An accessory that provides camera support to the Xbox 360.", name: "Xbox Kinect Camera", price: 20, available: true, brand: "Xbox", type: "Accessory", img: kinect}, 
+  { id: 13, description: "An iconic console, a defining piece of hardware in its generation, the Xbox 360 is a staple of an older time.", name: "Xbox 360", price: 100, available: true, brand: "Xbox", type: "Console", img: xbox360}, 
+  { id: 14, description: "A subscription to Xbox Gold, which provides free access to games and online play.", name: "Xbox Gold Subscription (12 Months)", price: 80, available: true, brand: "Xbox", type: "Digital", img: xbox_gold}, 
+  { id: 15, description: "From an iconic franchise, Halo CE is a game that cannot be overlooked. Combines FPS with fantasy.", name: "Halo: Combat Evolved", price: 30, available: true, brand: "Xbox", type: "Game", img: halo_ce},
+  { id: 16, description: "An older console from a forgotten era, the Sega Genesis was one of Sega's finest works.", name: "Sega Genesis", price: 80, available: true, brand: "Sega", type: "Console", img: sega} 
 ];
 
 const brands = ["All", "Playstation", "Xbox", "Nintendo", "Sega"];
