@@ -12,11 +12,11 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <Link to="/home" className="nav-logo">
           <img src={neoLogo} alt="NeoStore Logo" />
         </Link>
         <div className="nav-links">
-          <Link to="/" className="nav-link">
+          <Link to="/home" className="nav-link">
             <FontAwesomeIcon icon={faHouse} size="lg" />
             <span className="tooltip">Home</span>
           </Link>

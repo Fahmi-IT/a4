@@ -14,6 +14,7 @@ import slide3 from "./assets/slide3_new.png";
 import xbox_logo from "./assets/xbox_clean.png";
 import ps_logo from "./assets/ps_clean.png";
 import nintendo_logo from "./assets/nintendo_logo_clean.png";
+import neoLogo from "./assets/neo_icon.png";
 
 const slides = [
   {
@@ -161,10 +162,11 @@ const Home = () => {
 );
 }
 
-export default function App() {
+function App() {
   const [showSplash, setShowSplash] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [glow, setGlow] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
@@ -186,6 +188,7 @@ export default function App() {
       setShowSplash(false);
       setFadeOut(false);
       setGlow(false);
+      navigate("/home");
     }, 1600); // 600 + 1000 (glow + fade-out)
   };
 
@@ -196,23 +199,29 @@ export default function App() {
           className={`logo-button ${glow ? "glow" : ""}`}
           onClick={handleLogoClick}
         >
-          <img src="/assets/neo_icon.png" alt="NeoStore Logo" />
+          <img src={neoLogo} alt="NeoStore Logo" />
         </button>
       </div>
     );
   }
   return (
-    <Router>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/review" element={<ReviewPage />} />
         </Routes>
       </div>
-    </Router>
   );
 }
+
+export default function AppWrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+};
