@@ -4,7 +4,7 @@ import { CartContext } from "./contexts/CartContext";
 import "./App.css";
 
 const dummyProducts = [
-  { id: 1, description: "A Nintendo Switch 2 console.", name: "Nintendo Switch 2", price: 700, available: false, brand: "Nintendo", type: "Console", img: "/assets/nintendo_switch_2.png"}, 
+  { id: 1, description: "A Nintendo Switch 2 console.", name: "Nintendo Switch 2", price: 700, available: false, brand: "Nintendo", type: "Console", img: process.env.PUBLIC_URL + "/assets/nintendo_switch_2.png"}, 
   { id: 2, description: "A refurbished Nintendo Gamecube console.", name: "Nintendo Gamecube", price: 100, available: true, brand: "Nintendo", type: "Console", img: "/assets/nintendo_gamecube.png"}, 
   { id: 3, description: "A Nintendo Switch 2 Pro Controller. Includes 2 additional buttons.", name: "Nintendo Switch 2 Pro Controller", price: 100, available: true, brand: "Nintendo", type: "Accessory", img: "/assets/nintendo_pro.png"}, 
   { id: 4, description: "The latest entry in the Mario Kart series. New tracks, new racers, and new modes!", name: "Mario Kart World", price: 100, available: true, brand: "Nintendo", type: "Game", img: "/assets/mkw.png"}, 
