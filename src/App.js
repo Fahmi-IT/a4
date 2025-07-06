@@ -94,6 +94,45 @@ const Home = () => (
 );
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [glow, setGlow] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      setShowSplash(true);
+      localStorage.setItem("hasVisited", "true");
+    }
+    setShowSplash(true);
+  }, []);
+
+  const handleLogoClick = () => {
+    setGlow(true);
+    // Glow duration 0.6s, then start fade out
+    setTimeout(() => {
+      setFadeOut(true);
+    }, 600);
+    // After fade out ends, hide splash
+    setTimeout(() => {
+      setShowSplash(false);
+      setFadeOut(false);
+      setGlow(false);
+    }, 1600); // 600 + 1000 (glow + fade-out)
+  };
+
+  if (showSplash) {
+    return (
+      <div className={`splash-screen ${fadeOut ? "fade-out" : ""}`}>
+        <button
+          className={`logo-button ${glow ? "glow" : ""}`}
+          onClick={handleLogoClick}
+        >
+          <img src="/assets/neo_icon.png" alt="NeoStore Logo" />
+        </button>
+      </div>
+    );
+  }
   return (
     <Router>
       <div className="App">

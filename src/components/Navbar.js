@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment, faStore, faHouse, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import "../App.css";
@@ -9,12 +11,23 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">NeoStore</Link>
+        <Link to="/" className="nav-logo">
+          <img src="/assets/neo_icon.png" alt="NeoStore Logo" />
+        </Link>
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/marketplace">Marketplace</Link>
-          <Link to="/review">Leave a Review</Link>
-          <Link to="/cart" className="cart-link">Cart ({cartItems.length})</Link>
+          <Link to="/" className="nav-link">
+            <FontAwesomeIcon icon={faHouse} size="lg" />
+          </Link>
+          <Link to="/marketplace">
+          <FontAwesomeIcon icon={faStore} size="lg" />
+          </Link>
+          <Link to="/review">
+            <FontAwesomeIcon icon={faComment} size="lg" />
+          </Link>
+          <Link to="/cart">
+            <FontAwesomeIcon icon={faShoppingCart} />
+            <p style={{ display: 'inline', marginLeft: '6px', color: 'white' }}>({cartItems.length})</p>
+          </Link>
         </div>
       </div>
     </nav>
