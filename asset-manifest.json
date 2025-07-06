@@ -1,16 +1,37 @@
 {
   "files": {
     "main.css": "/a4/static/css/main.c197bbd9.css",
-    "main.js": "/a4/static/js/main.b1ff8f6e.js",
+    "main.js": "/a4/static/js/main.521e7143.js",
     "static/js/453.673813a4.chunk.js": "/a4/static/js/453.673813a4.chunk.js",
+    "static/media/slide3_new.png": "/a4/static/media/slide3_new.395d7c98db559a106d3b.png",
     "static/media/nintendo_switch_2.png": "/a4/static/media/nintendo_switch_2.ddfe668c6b63554eb654.png",
+    "static/media/slide2_new.png": "/a4/static/media/slide2_new.1f01381ddcc5a9e53137.png",
+    "static/media/halo_ce.png": "/a4/static/media/halo_ce.e64d6c0357fc3a1538e3.png",
+    "static/media/ps2.png": "/a4/static/media/ps2.6ad8deb340ca9c74b08f.png",
+    "static/media/nintendo_pro.png": "/a4/static/media/nintendo_pro.8f85b684aaefb1df37a4.png",
+    "static/media/nintendo_online.png": "/a4/static/media/nintendo_online.1ce01fb240b45adfb1af.png",
+    "static/media/sega_genesis.png": "/a4/static/media/sega_genesis.9952aa5440e416fd04cd.png",
+    "static/media/slide1_new.png": "/a4/static/media/slide1_new.1ce3697f3575f6a993da.png",
+    "static/media/ps4_blue.png": "/a4/static/media/ps4_blue.cf9892c291314dfadd78.png",
+    "static/media/xbox_one.png": "/a4/static/media/xbox_one.64fb8caf04b567f844bd.png",
+    "static/media/mkw.png": "/a4/static/media/mkw.167a18343437e0d579ba.png",
+    "static/media/xbox_gold.png": "/a4/static/media/xbox_gold.e20ab599ed9f3789eb9c.png",
+    "static/media/sl2.png": "/a4/static/media/sl2.8728ceb85717f40911dd.png",
+    "static/media/xbox360.png": "/a4/static/media/xbox360.b323e5ce24ac7ae81c33.png",
+    "static/media/nintendo_logo_clean.png": "/a4/static/media/nintendo_logo_clean.49dfc3e20e64a0332521.png",
+    "static/media/nintendo_gamecube.png": "/a4/static/media/nintendo_gamecube.82b3f0801c71b4383511.png",
+    "static/media/ps5.png": "/a4/static/media/ps5.0a7ee9158edcfece3a51.png",
+    "static/media/xbox_kinect.png": "/a4/static/media/xbox_kinect.9fd578b5a361f8c55629.png",
+    "static/media/xbox_clean.png": "/a4/static/media/xbox_clean.1532e843c7ef8beb1d5d.png",
+    "static/media/ps_plus.png": "/a4/static/media/ps_plus.7624d20fed9542d26151.png",
+    "static/media/ps_clean.png": "/a4/static/media/ps_clean.369608579617e5c1a3c9.png",
     "index.html": "/a4/index.html",
     "main.c197bbd9.css.map": "/a4/static/css/main.c197bbd9.css.map",
-    "main.b1ff8f6e.js.map": "/a4/static/js/main.b1ff8f6e.js.map",
+    "main.521e7143.js.map": "/a4/static/js/main.521e7143.js.map",
     "453.673813a4.chunk.js.map": "/a4/static/js/453.673813a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c197bbd9.css",
-    "static/js/main.b1ff8f6e.js"
+    "static/js/main.521e7143.js"
   ]
 }
