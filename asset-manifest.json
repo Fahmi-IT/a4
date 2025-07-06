@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/a4/static/css/main.c197bbd9.css",
-    "main.js": "/a4/static/js/main.521e7143.js",
+    "main.js": "/a4/static/js/main.7eed77fa.js",
     "static/js/453.673813a4.chunk.js": "/a4/static/js/453.673813a4.chunk.js",
     "static/media/slide3_new.png": "/a4/static/media/slide3_new.395d7c98db559a106d3b.png",
     "static/media/nintendo_switch_2.png": "/a4/static/media/nintendo_switch_2.ddfe668c6b63554eb654.png",
@@ -27,11 +27,11 @@
     "static/media/ps_clean.png": "/a4/static/media/ps_clean.369608579617e5c1a3c9.png",
     "index.html": "/a4/index.html",
     "main.c197bbd9.css.map": "/a4/static/css/main.c197bbd9.css.map",
-    "main.521e7143.js.map": "/a4/static/js/main.521e7143.js.map",
+    "main.7eed77fa.js.map": "/a4/static/js/main.7eed77fa.js.map",
     "453.673813a4.chunk.js.map": "/a4/static/js/453.673813a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c197bbd9.css",
-    "static/js/main.521e7143.js"
+    "static/js/main.7eed77fa.js"
   ]
 }
