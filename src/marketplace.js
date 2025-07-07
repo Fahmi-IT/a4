@@ -23,18 +23,18 @@ const dummyProducts = [
   { id: 1, description: "A Nintendo Switch 2 console.", name: "Nintendo Switch 2", price: 700, available: false, brand: "Nintendo", type: "Console", img: nintendo_switch_2}, 
   { id: 2, description: "A refurbished Nintendo Gamecube console.", name: "Nintendo Gamecube", price: 100, available: true, brand: "Nintendo", type: "Console", img: gamecube}, 
   { id: 3, description: "A Nintendo Switch 2 Pro Controller. Includes 2 additional buttons.", name: "Nintendo Switch 2 Pro Controller", price: 100, available: true, brand: "Nintendo", type: "Accessory", img: pro_controller}, 
-  { id: 4, description: "The latest entry in the Mario Kart series. New tracks, new racers, and new modes!", name: "Mario Kart World", price: 100, available: true, brand: "Nintendo", type: "Game", img: mkw}, 
+  { id: 4, rating: "E", description: "The latest entry in the Mario Kart series. New tracks, new racers, and new modes!", name: "Mario Kart World", price: 100, available: true, brand: "Nintendo", type: "Game", img: mkw}, 
   { id: 5, description: "A Nintendo Switch Online subscription, allowing the user to get access to a library of retro games and online play.", name: "Nintendo Switch Online Subscription (3 Months)", price: 80, available: true, brand: "Nintendo", type: "Digital", img: nintendo_online}, 
   { id: 6, description: "The latest console in the Playstation family. Can run most games at high resolution and good framerate. Has access to PS exclusives.", name: "Playstation 5", price: 400, available: true, brand: "Playstation", type: "Console", img: ps5}, 
   { id: 7, description: "The console that took the 21st century by storm when it first released. The PS2 is an iconic entry in the series.", name: "Playstation 2", price: 100, available: true, brand: "Playstation", type: "Console", img: ps2}, 
   { id: 8, description: "A blue controller for the Playstation 4.", name: "PS4 Controller (Blue)", price: 60, available: true, brand: "Playstation", type: "Accessory", img: ps4_controller}, 
   { id: 9, description: "A subscription to Playstation Plus, which provides free access to games and online play.", name: "Playstation Plus Subscription (1 Month)", price: 12, available: true, brand: "Playstation", type: "Digital", img: ps_online}, 
-  { id: 10, description: "The sequel to the critically acclaimed Sly Cooper.", name: "Sly Cooper 2: Band of Thieves", price: 30, available: true, brand: "Playstation", type: "Game", img: sly_cooper}, 
+  { id: 10, rating: "E", description: "The sequel to the critically acclaimed Sly Cooper.", name: "Sly Cooper 2: Band of Thieves", price: 30, available: true, brand: "Playstation", type: "Game", img: sly_cooper}, 
   { id: 11, description: "A modern entry in the Xbox family, the Xbox One modernized gaming and was a first step in modern gaming.", name: "Xbox One", price: 400, available: true, brand: "Xbox", type: "Console", img: xbox_one}, 
   { id: 12, description: "An accessory that provides camera support to the Xbox 360.", name: "Xbox Kinect Camera", price: 20, available: true, brand: "Xbox", type: "Accessory", img: kinect}, 
   { id: 13, description: "An iconic console, a defining piece of hardware in its generation, the Xbox 360 is a staple of an older time.", name: "Xbox 360", price: 100, available: true, brand: "Xbox", type: "Console", img: xbox360}, 
   { id: 14, description: "A subscription to Xbox Gold, which provides free access to games and online play.", name: "Xbox Gold Subscription (12 Months)", price: 80, available: true, brand: "Xbox", type: "Digital", img: xbox_gold}, 
-  { id: 15, description: "From an iconic franchise, Halo CE is a game that cannot be overlooked. Combines FPS with fantasy.", name: "Halo: Combat Evolved", price: 30, available: true, brand: "Xbox", type: "Game", img: halo_ce},
+  { id: 15, rating: "M", description: "From an iconic franchise, Halo CE is a game that cannot be overlooked. Combines FPS with fantasy.", name: "Halo: Combat Evolved", price: 30, available: true, brand: "Xbox", type: "Game", img: halo_ce},
   { id: 16, description: "An older console from a forgotten era, the Sega Genesis was one of Sega's finest works.", name: "Sega Genesis", price: 80, available: true, brand: "Sega", type: "Console", img: sega} 
 ];
 
@@ -201,7 +201,7 @@ export default function Marketplace() {
           addToCart(product);
           }}
         >
-          Buy Now
+          Add to Cart
         </button>
       ) : (
         <span className="out-of-stock">Out of Stock</span>
@@ -233,7 +233,7 @@ export default function Marketplace() {
                 closePopup();
               }}
             >
-              Buy Now
+              Add to Cart
             </button>
           ) : (
             <span className="out-of-stock">Out of Stock</span>
